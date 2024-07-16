@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section className="container-lg p-lg-5 signin-layout section-2">
+        <div className="signin_image p-lg-5 d-flex align-items-lg-center justify-content-lg-center">
+          <div className="ps-5 pt-5 p-lg-5">
+          <h2 className="mb-3">Sign in to know more about our students achievements</h2>
+          <p>Don't have an account. <Link href="/signup" passHref><span>Signup</span></Link> here</p>
+          </div>
+        </div>
+        <div className="signin_content pt-5 pt-lg-0 d-flex align-items-lg-center justify-content-center">
+            <form onSubmit={handleSubmit}>
+              <div className="mb-3">
+                <label htmlFor="rlno" className="form-label">Student Roll No/Parent ID/Teacher ID</label>
+                <input type="text" className="form-control" name="user_id" 
+                 onChange={(e)=>{setUserid(e.target.value)}} id="user_id" value={userid}
+                  autoComplete="user_id"
+                 placeholder="User ID" required />
+                         <div className="text-danger m-1 text-center">{userErr?'User Id is wrong':''}</div>
+              </div>
+              <div className="mb-3">
+                <label htmlFor="InputPassword1" className="form-label">Password</label>
+                  <input type="password" className="form-control" name="password" 
+                   onChange={e=>{setPassword(e.target.value)}} id="password" value={password}
+                  autoComplete="password" 
+                 required />
+                         <div className="text-danger m-1 text-center">{psdErr?'Password is wrong':''}</div>
+              </div>
+              <div className="mb-1 form-check">
+                <input type="checkbox" className="form-check-input" name="Check1" 
+                id="Check1" defaultChecked />
+                <label htmlFor="Check1" className="form-label">Remember me</label>
+              </div>
+              <button type="submit" className="button w-50 d-flex justify-content-center">Login</button>
+            </form>
+        </div>
+      </section>
+    <script>
+          let [userid,setUserid] = useState('')
+  let [password,setPassword] = useState('')
+  let [userErr, setuserErr] = useState(false)
+  let [psdErr, setpsdErr] = useState(false)
+
+  const handleSubmit=async(e)=>{
+    e.preventDefault();
+    userid= e.target.user_id.value
+    password = e.target.password.value
+    const res= await fetch(`https://6128abbf86a213001729fa50.mockapi.io/students/?User_Id=${userid}`)
+    const data = await res.json()
+    try{
+    if(data){
+      result=data[0].Form_Id
+      if(data[0].User==="Admin"){
+        if(userid===data[0].User_Id && password === data[0].Password){
+         router.push("/afterlogin/admin_portal")
+        }else{
+          if(!(userid=== data[0].User_Id)){
+            setuserErr(true)
+          }
+          else{
+            setuserErr(false)
+          }
+          if(!(password=== data[0].Password)){
+            setpsdErr(true)
+          }
+          else{
+            setpsdErr(false)
+          }
+        }
+      }
+      else if(data[0].User==="Teacher"){
+        if(userid===data[0].User_Id && password === data[0].Password){
+          router.push("/afterlogin/teacher_portal")
+         }else{
+          if(!(userid=== data[0].User_Id)){
+            setuserErr(true)
+          }
+          else{
+            setuserErr(false)
+          }
+          if(!(password=== data[0].Password)){
+            setpsdErr(true)
+          }
+          else{
+            setpsdErr(false)
+          }
+        }
+      }
+      else if(data[0].User==="Parent"){
+        if(userid===data[0].User_Id && password === data[0].Password){
+          router.push("/afterlogin/parent_portal")
+         }else{
+          if(!(userid=== data[0].User_Id)){
+            setuserErr(true)
+          }
+          else{
+            setuserErr(false)
+          }
+          if(!(password=== data[0].Password)){
+            setpsdErr(true)
+          }
+          else{
+            setpsdErr(false)
+          }
+         }
+      }
+    }
+    }catch(e){
+      router.push("/login")
+    }
+    }
+
+    </script>
+</body>
+</html>

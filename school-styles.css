@@ -1,0 +1,758 @@
+.scroll    h5{
+      color: rgba(#000000, 0.5);
+    }
+
+    .scroll  .scroll_content{
+    white-space: nowrap;
+    padding-left: 100%;
+    animation: scroll 50s linear infinite;
+    }
+    .scroll   .scroll_content a{
+      color: rgba(#000000, 0.8);
+      letter-spacing: 0.05rem;
+    }
+  
+ .scroll .scroll_content:hover{
+    animation-play-state: paused;
+ }
+ .scroll .scroll_content:hover   span:hover{
+      border-bottom: 1px solid orange;
+    }
+
+  @keyframes scroll {  
+    to{
+      transform: translateX(-100%);
+    }
+  }
+  .scroll_content:hover a{
+      color:rgba(#000000, 0.3);
+    }
+    .scroll_content:hover    a:hover{
+      color: orange;
+    }
+  .logo_block{
+    color: black;
+    position: relative;
+  }
+    .logo_block h1{
+      letter-spacing: 0.05rem;
+    }
+    .logo_block__item{
+      color: rgba(#000000, 0.7);
+      letter-spacing: 0.05rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+  .logo_block__item:hover{
+    font-weight: 600;
+  }
+  .logo_block__item::after{
+    content: '';
+    display: block;
+    background: orange;
+    height: 2px;
+    width: 100%;
+    transform: scale(0,1);
+    transition: transform 400ms ease-in-out;
+  }
+  .logo_block__item:hover::after{
+    transform: scale(1,1);
+  }
+  .search_bar{
+    background-color:rgba(#000000, 0.05);
+    border-radius: 0.1rem;
+    }
+    .search_bar  form div{
+      background-color: white;
+      border: 1px solid orange;
+      border-radius: 100vh;
+      color: orange;
+    }
+    .search_bar form div  input{
+      border:none;
+      border-radius: 100vh;
+    }
+  .main_nav{
+    background-color: white;
+    padding-left: 5px;
+      .main_nav__block{
+      min-width: 94%;
+    }
+    a{
+      color: rgba(#000000, 0.3);
+      cursor:pointer;
+    }
+    .main_nav__item a{
+      color: black;
+      letter-spacing: 0.1rem;
+    }
+    .main_nav__item::after{
+      content: '';
+      display: block;
+      background: orange;
+      height: 2px;
+      width: 100%;
+      transform: scale(0,1);
+      transition: transform 400ms ease-in-out;
+    }
+    .main_nav__item:hover::after{
+      transform: scale(1,1);
+    }
+  }
+  .main_nav__block:hover{
+    .main_nav__item a:hover{
+      color: orange;
+    }
+    .main_nav__item a{
+      color: rgba(#000000, 0.3);
+    }
+    .main_nav__item ul li a{
+      color: black;
+    }
+  }
+  @media screen and (max-width:992px){
+    .main_nav__item{
+      text-align: left !important;
+    }
+  }
+  
+
+
+  .blog_block{
+    h2{
+      color: rgba(0, 0, 0,0.5);
+      border-bottom:2px solid rgba(orange,0.5);
+    }
+    a span{
+      color:rgba(0, 0, 0,0.8);
+      letter-spacing: 0.05rem;
+      cursor: pointer;
+    }
+    a span svg{
+      color:sandybrown;
+      transform: translate(0px,0px);
+    }
+    a span:hover{
+      color: rgba(orange,0.8);
+      svg{
+          animation: move 1s infinite ;
+      }
+    }
+  }
+  @keyframes move {
+      0%{
+          opacity: 0.2;
+          transform: translateX(0px);
+      }
+      100%{
+          opacity: 1;
+          transform: translateX(10px);
+      } 
+  }
+  .article{
+    h4{
+        letter-spacing: 0.03rem;
+        word-spacing: 0.15rem;
+        line-height: 1.5rem;
+        cursor: pointer;
+    }
+    span{
+        color: rgba(0, 0, 0,0.5);
+    }
+    p{
+        color: rgba(0, 0, 0,0.6);
+        line-height: 1.7rem;
+        letter-spacing: 0.05rem;   
+    }
+  }
+  .news_article{
+    a{
+      color: orange;
+      text-decoration: none;
+    }
+  }
+
+
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
+//@import url('https://source.unsplash.com/user/jessbailey/l3N9Q27zULw');
+
+* {
+  box-sizing: border-box;
+}
+html{
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+body {
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
+  font-family: Cairo !important;
+}
+section {
+  min-height: 100vh;
+}
+h2{
+  color: rgba(0, 0, 0,0.5);
+}
+.button{
+  letter-spacing: 0.05rem;
+  margin: 1em auto 1em;
+  border: none;
+  border-radius: 0.2rem;
+  padding: 0.3rem 1rem 0.3rem 1rem; 
+  outline: 0.1rem solid rgba(orange,0.5);
+  outline-offset: -0.2rem;
+  background-color: rgba(orange,1);
+  color: white;
+  transition: color 200ms linear, background-color 300ms ease;
+  isolation: isolate;
+  position: relative;
+}
+.button:hover,
+.button:focus,
+.button:active{
+  color: black;
+  background-color: rgba(orange,0.75);
+  outline: 0.1rem solid rgba(orange,0.5);
+  outline-offset: 0.1rem;
+}
+//navbar
+.nav-scroll, .nav-scroll ul{
+  background-color: white !important;
+  h3{
+    color: orange !important;
+  }
+  a{
+    color: black !important;
+  }
+}
+//dropdown
+.dropdown{
+  position: relative;
+}
+.dropdown-menu{
+  position: absolute;
+  display: none;
+  background-color: white !important;
+}
+.dropdown:hover .dropdown-menu{
+  display: block;
+  background-color: white !important;
+}
+.dropdown-item:hover{
+  background-color: white !important;
+}
+//carousel
+.carousel{
+  h1 font{
+    color: orange;
+    line-height: 2.2rem;
+  }
+}
+.carousel .carousel-caption{
+  width:100%;
+  height: 100%;
+  left:0;
+  top:0;
+    background: 
+  linear-gradient(
+    to right,
+    rgba(black, 0.8) 1%,
+    rgba(black, 0.5) 50%,
+    rgba(0, 0, 0,0.3) 
+    rgba(0,0,0,0)
+  );
+}
+@media screen and (max-width:992px) {
+  .carousel .carousel-caption{
+    background: 
+      linear-gradient(
+      to right,
+    rgba(0, 0, 0,0.3) 
+    rgba(0,0,0,0)
+  );
+  }
+}
+//calender events
+.event-list{
+  width: 45%;
+  color: rgba(0, 0, 0,0.5);
+  li{
+  color: rgba(0, 0, 0,0.8);
+  padding-bottom: 2px;  
+  border-bottom: 2px solid rgba(0, 0, 0,0.2);
+  cursor: pointer;
+  letter-spacing: 0.1rem;
+  }
+  li:hover,
+  li:focus,
+  li:active{
+  color: black;
+  font-weight: 600 ;
+  border-bottom: 2px solid orange;
+  padding-bottom: 2px;
+  }
+}
+//Schools
+.school_block{
+  h2{
+    color: rgba(0, 0, 0,0.5);
+    border-bottom: 2px solid rgba(orange,0.5);
+  }
+  h3{
+    color: orange;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(black, 0.5);
+  }
+  p{
+    color: rgba(0, 0, 0,0.7);
+  }
+}
+.school_image{
+  border: 1px solid orange;
+  border-radius: 100vh;
+//  height: 300px;
+//  width: 300px;
+  background-color: rgba(orange,0.2);
+}
+//Admissions
+.admission_block{
+  p{
+    color: rgba(0, 0, 0,0.5);
+  }
+  li{
+    border-bottom: 1px solid orange;
+  }
+  a{
+    color: rgba(0, 0, 0,0.8);
+  }
+  a:focus,
+  a:active,
+  a:hover{
+    color: orange;
+  }
+}
+//Employment
+.employment_block{
+  li{
+    position: relative;
+    isolation: isolate;
+    padding-left: 2em;
+  }
+  li::before{
+    content: '';
+    position: absolute;
+    top: 1.2em;
+    left: 0;
+    margin-left: 0.5em;
+    padding: 0;
+    width: 0.7em;
+    height: 0.7em;
+    border-radius: 0.7em;
+    background-color: rgba(orange,0.5);
+  }
+  li
+  a{
+    color: rgba(0, 0, 0,0.7);
+    letter-spacing: 0.05rem;
+    line-height: 2rem;
+    word-spacing: 0.1rem;
+  }
+  a:hover,
+  a:focus,
+  a:active{
+    color: orange;
+  }
+}
+//Blog
+.blog-articles{
+  background-color: rgba(orange,0.2);
+  h4,span,p{
+    color: rgba(0, 0, 0,0.5);
+  }
+  h5{
+    letter-spacing: 0.05rem;
+    line-height: 1.5rem;
+    cursor: pointer;
+  }
+  h5:hover,
+  h5:focus,
+  h5:active{
+    text-decoration: underline;
+  }
+  li{
+    color: orange;
+    letter-spacing: 0.05rem;
+    cursor: pointer;
+  }
+  li:hover,
+  li:focus,
+  li:active{
+    font-weight: 600;
+  }
+  .article_image{
+    min-height: 100%;
+    min-width: 100%;
+  }
+}
+//single article content
+.article_content{
+  h4{
+    color: rgba(orange,0.8);
+    letter-spacing: 0.05rem;
+    line-height: 1.5rem;
+  }
+  p:first-of-type{
+    color: rgba(black, 0.5);
+  }
+  p{
+    color: rgba(black,0.8);
+    line-height: 2rem;
+  }
+}
+//Calendar
+.calendar{
+  min-height: 70vh !important;
+}
+//Connect Us
+.support-content {
+  border-top: 1px solid orange;
+  h3{
+    color: rgba(0, 0, 0,0.5);
+  }
+  a{
+    color: rgba(orange,0.5);
+  }
+}
+.support-content a:hover,
+.support-content a:focus,
+.support-content a:active{
+  color: rgba(orange,1);
+}
+//Activities
+.activities-block {
+  box-shadow: inset 0 0 5rem rgba(orange,0.4);
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: repeat(4,minmax(100px,1fr));
+  grid-template-rows: repeat(4,minmax(100px, 1fr));
+  .item span{
+    color:orange;
+  }
+  .item-1{
+    grid-column: 1/ span 2;
+  } 
+  .item-5{
+    grid-column: 2/ span 2;
+  }
+  .item-9{
+    grid-column: 3/ span 2;
+  }
+ .item .bi:hover,
+ .item .bi:active,
+ .item .bi:focus{
+  color: rgba(orange,0.5) ;
+  }
+}
+@media screen and (max-width:992px) {
+  .activities-block{
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: repeat(2,1fr);
+    .item-1,.item-3,.item-5,.item-7{
+      grid-column: 1 /span 1;
+    }
+    .item-2,.item-4,.item-6,.item-8{
+      grid-column: 2/span 1;
+    }
+    .item-9{
+      grid-column: 1/ span 2;
+    }
+  }
+}
+//About 
+.about-content{
+  background-color: rgba(orange,0.2);
+  h2{
+  color: rgba(0, 0, 0,0.7);
+  }
+  p{
+    color: rgba(0, 0, 0,0.4);
+  }
+}
+//Team
+.team_block{
+  p, h5{
+    color: rgba(0, 0, 0,0.5);
+  }
+}
+//breabcrumb routes
+.route{
+  a:hover,
+  a:focus,
+  a:active{
+    text-decoration: underline !important;
+  }
+}
+//Sign up and sign in
+.signup_layout{
+  background-image: url("../public/signup_image.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgba(orange,0.5);
+  background-blend-mode: screen;
+  form{
+    color:rgba(0, 0, 0,0.6);
+  }
+  small{
+    letter-spacing: 0.05rem;
+    opacity:0;
+    transition: opacity 400ms ease;
+  }
+  input[type="password"]:focus,
+  input[type="password"]:active{
+    & ~ small{
+      opacity: 1;
+      color: orange;
+    }
+  }
+}
+.hide{
+  content-visibility: hidden;
+}
+
+
+.signin-layout{
+  display:grid;
+  grid-template-columns: 2fr 1fr 2fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  align-items:center;
+  justify-content:center;
+  .signin_image{
+    grid-column: 1/ span 2;
+    grid-row: 1/ -1;
+    min-height: 100%;
+    background-image: url("../public/signup_image.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgba(orange,0.2);
+    background-blend-mode: screen;
+    p{
+      color: orange;
+    }
+    span{
+      color: black;
+      font-weight: 600;
+      letter-spacing: 0.05rem;
+    }
+    span:hover,
+    span:focus,
+    span:active{
+      text-decoration: underline;
+    }
+  }
+  .signin_content{
+    grid-column: 3/ span 2;
+    grid-row: 1/ span 4;
+    min-height: 100%;
+    background: linear-gradient(
+      200deg,
+      rgba(orange,0.1),
+      rgba(orange,0.2),
+      rgba(orange,0.15),
+    );
+    color:rgba(black, 0.5);
+  }
+}
+@media (max-width: 992px){
+  .signin-layout{
+    display:grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 3fr;
+    .signin_image{
+      grid-column: 1/ span 2;
+      grid-row: 1/ -1;
+    }
+    .signin_content{
+      grid-column: 1/ span 2;
+      grid-row: 2/ -1;
+      min-height: 100%;
+      background: linear-gradient(
+        135deg,
+        rgba(orange,0.01) 50%,
+        rgba(orange,0.2),
+        rgba(orange,0.15),
+      );
+    }
+  } 
+}
+//after login page
+.piechart{
+  border:1px solid white;
+  border-radius: 50%;
+  width:12.5rem;
+  height: 12.5rem;
+  background-image: conic-gradient(
+    pink 0deg 45deg, 
+    violet 45deg 140deg,
+    orange 140deg 175deg,
+    blue 175deg 220deg,
+    green 220deg 315deg,
+    red 315deg 360deg);    
+}
+.portal_header{
+  h4{
+    color:orange;
+    font-weight: 600;
+  }
+  button{
+    margin: 0;
+    padding:0 1rem 0 1rem;
+    background-color: white;
+    color:rgba(0, 0, 0,0.5);
+  }
+  button:focus,
+  button:active,
+  button:hover{
+    color: rgba(orange,0.5);
+  }
+  ul li a{
+    color: rgba(0, 0, 0,0.5);
+  }
+  ul li{
+    border-bottom: 1px solid orange;
+  }
+}
+.main-layout{
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:2fr 8fr;
+  grid-column-gap:10px;
+  a{
+    color: rgba(black,0.5);
+  }
+  a:hover,
+  a:focus,
+  a:active{
+    color: rgba(orange,0.8);
+  }
+}
+.side-nav{
+  padding:15px;
+}
+.side-nav .navbar-collapse{
+  overflow-y:scroll;
+}
+.nav-content{
+  padding:10px;
+}
+.side-nav .nav-item{
+  background-color: white;
+}
+.side-nav .nav-item button{
+  color: rgba(0, 0, 0,0.5);
+  background-color: white;
+  border: none;
+}
+.side-nav .nav-item button:hover{
+  background-color: orange !important;
+  color: white;
+}
+.side-nav .nav-item .active, .nav-item button:focus,
+.nav-item button:active{
+  color: white;
+  background-color: orange !important;
+}
+@media (max-width: 992px){
+  .main-layout{
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    align-content:normal;
+  }
+}
+//footer
+footer{
+  color: rgba(0, 0, 0,0.4);
+}
+.scrolltop{
+  float: right;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  color: rgba(orange,0.5);
+  background-color: white;
+  transition: opacity 300ms ease;
+}
+.scrolltop:hover{
+  color:white;
+  background-color: rgba(orange,0.8);
+}
+
+
+
+
+
+#__next{
+    min-height: 100%;
+}
+
+
+
+.tab-content .tab-pane li p:hover{
+    text-decoration: underline;
+}
+.piechart{
+    border:1px solid white;
+    border-radius: 50%;
+    width:12.5rem;
+    height: 12.5rem;
+    background-image: conic-gradient(
+    pink 0deg 45deg, 
+    violet 45deg 140deg,
+    orange 140deg 175deg,
+    blue 175deg 220deg,
+    green 220deg 315deg,
+    red 315deg 360deg);
+}
+.nav-item{
+    background-color: white;
+}
+.nav-item button{
+    color: black;
+    background-color: white;
+    border: none;
+}
+.nav-item button:hover{
+    background-color: orange !important;
+    color: white;
+}
+.nav-item .active, .nav-item button:focus,.nav-item button:active{
+    color: blue ;
+    background-color: white !important;
+}
+#mycalendar .list-group .list-group-item:active,
+#mycalendar .list-group .list-group-item:hover,
+#mycalendar .list-group .list-group-item:focus,
+#mycalendar .list-group .list-group-item .active{
+    background-color: black;
+    color: white;
+}
+@media (min-width: 992px){
+    .side-nav-scroll{
+    overflow-y: scroll;
+    min-height: 100% !important;
+}
+}
+
+
+
+

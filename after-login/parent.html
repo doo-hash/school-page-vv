@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        <div className="container-fluid sticky-top border-bottom portal_header bg-dark">
+          <header className="d-flex justify-content-between px-1 py-2 mb-0">
+              <h4 className="d-flex fw-bold px-2 fs-3 text-decoration-none logo">
+              LOGO
+              </h4>
+              <button className="btn dropdown-toggle" type="button" 
+               data-bs-toggle="dropdown" aria-expanded="false">
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" 
+              className="bi bi-person-circle" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468
+                 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+              </svg>
+              </button>
+              <ul className="dropdown-menu dropdown-menu-end">
+                <li><Link href="/afterlogin/admin_portal" passHref>
+                  <a className="dropdown-item">Profile</a></Link></li>
+                <li><Link href="/afterlogin/admin_portal" passHref>
+                  <a className="dropdown-item">Notifications</a></Link></li>
+                <li><Link href="/afterlogin/admin_portal" passHref>
+                  <a className="dropdown-item">Settings</a></Link></li>
+                <li><Link href="/" passHref>
+                  <a className="dropdown-item">Logout</a></Link></li>
+              </ul>
+            </header>
+        </div>  
+        <div className="main-layout">
+          <div className="side-nav">
+            <nav className="navbar navbar-expand-lg navbar-light">
+              <button className="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                data-bs-target="#navbarContent" aria-controls="navbarSupportedContent"
+                 aria-expanded="false" aria-label="Toggle navigation">
+               <span className="navbar-toggler-icon"></span>
+              </button>
+              <div className="collapse navbar-collapse p-2 p-lg-0 bg-white m-1" id="navbarContent">
+                <div className="nav flex-column nav-item fs-5 w-100 " id="tab" role="tablist" 
+                aria-orientation="vertical">
+                  <button className="nav-link active text-start bg-light" id="all-tab" 
+                  data-bs-toggle="pill" data-bs-target="#all" type="button" role="tab" 
+                  aria-controls="all" aria-selected="true">All</button>
+                  <button className="nav-link text-start bg-light" id="testing-tab" 
+                  data-bs-toggle="pill" data-bs-target="#testing" type="button" role="tab" 
+                  aria-controls="testing" aria-selected="false">Testing</button>
+                  <button className="nav-link text-start bg-light" id="profile-tab" 
+                  data-bs-toggle="pill" data-bs-target="#profile" type="button" role="tab" 
+                  aria-controls="profile" aria-selected="false">Profile</button>
+                  <button className="nav-link text-start bg-light" id="classNamees-tab" 
+                  data-bs-toggle="pill" data-bs-target="#classNamees" type="button" role="tab" 
+                  aria-controls="classNamees" aria-selected="false">classNamees</button>
+                  <button className="nav-link text-start bg-light" id="messages-tab" 
+                  data-bs-toggle="pill" data-bs-target="#messages" type="button" role="tab" 
+                  aria-controls="messages" aria-selected="false">Messages</button>
+                  <button className="nav-link text-start bg-light" id="immunization-tab" 
+                  data-bs-toggle="pill" data-bs-target="#immunization" type="button" role="tab" 
+                  aria-controls="immunization" aria-selected="false">Immunization</button>
+                  <button className="nav-link text-start bg-light" id="progressrprt-tab" 
+                  data-bs-toggle="pill" data-bs-target="#progressrprt" type="button" role="tab" 
+                  aria-controls="progressrprt" aria-selected="false">Progress Report</button>
+                  <button className="nav-link text-start bg-light" id="rprtcard-tab" 
+                  data-bs-toggle="pill" data-bs-target="#rprtcard" type="button" role="tab" 
+                  aria-controls="rprtcard" aria-selected="false">Annual Analysis</button>
+                  <button className="nav-link text-start bg-light" id="assignments-tab" 
+                  data-bs-toggle="pill" data-bs-target="#assignments" type="button" role="tab" 
+                  aria-controls="assignments" aria-selected="false">Assignments</button>
+                </div>
+              </div>
+            </nav>
+          </div>
+          <div className="nav-content">
+            <div className="tab-content" id="tabContent">
+            <div className="tab-pane fade show active" id="all" role="tabpanel" 
+              aria-labelledby="all-tab">
+              <h3 className="p-3 mb-2 text-center text-dark">WELCOME PARENT</h3>
+              <table className="table table-bordered table-striped text-center mb-5 p-2 border">
+                <thead><tr><th>Number of classNamees registered</th><th>Messages</th>
+                  <th>Attendance</th></tr></thead>
+                  <tbody>
+                  <tr><td><span>8</span></td><td><span>4</span></td><td>full</td></tr>
+                  </tbody>
+              </table>
+              <div className="row m-0">
+                <div className="col-12 col-lg-6">
+                  <div className="card shadow mb-4 bg-body rounded">
+                    <div className="card-title card-header">YOUR GRADES</div>
+                      <div className="card-body d-flex align-items-center justify-content-center">
+                        <div className="piechart"></div>
+                          <ul className="text-center text-light">
+                            <li style={{"backgroundColor": "pink"}}>A</li>
+                            <li style={{"backgroundColor": "green"}}>B</li>
+                            <li style={{"backgroundColor": "orange"}}>C</li>
+                            <li style={{"backgroundColor": "blue"}}>D</li>
+                            <li style={{"backgroundColor":"violet"}}>E</li>
+                            <li style={{"backgroundColor": "red"}}>F</li>
+                          </ul>
+                      </div>
+                      <div className="card-footer text-muted">Quarterly grades</div>
+                  </div>
+                </div>
+                <div className="col-12 col-lg-6">
+                  <div className="card shadow mb-4 bg-body rounded">
+                    <div className="card-title card-header">REMARKS</div>
+                    <div className="card-blody">
+                      <ul className="list-group list-group-flush">
+                        <li className="list-group-item">He/She is doing good in xxxx,xxxx,xxxx.</li>
+                        <li className="list-group-item">He/She should improve in these subjects xxxx,xxx.</li>
+                        <li className="list-group-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                        <li className="list-group-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                        <li className="list-group-item">He/She has been showing interest in these xxxx,xxxx,xxxxx</li>
+                        <li className="list-group-item">Can refer these for further improvement: <a>xxxxx</a>, <a>xxxxx</a>.</li>
+                      </ul>
+                    </div>
+                    <div className="card-footer text-muted">Remarks for quarterly exams</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="tab-pane fade p-2" id="testing" role="tabpanel" 
+              aria-labelledby="testing-tab">
+              <h3 className="p-3 mb-2 text-center">Testing</h3>
+              <p className="py-3">
+                Your test results for this semister are Lorem, ipsum dolor sit amet consectetur 
+                adipisicing elit. Autem eligendi at error explicabo qui a atque vero sunt ea ad 
+                minus quae laudantium tenetur, 
+                obcaecati consequuntur nesciunt quisquam asperiores. Sapiente!</p>
+            </div>
+      
+            <div className="tab-pane fade p-2" id="profile" role="tabpanel" 
+              aria-labelledby="profile-tab">
+              <h3 className="p-3 mb-2 text-center">My Profile</h3>
+              <table className="table table-bordered table-hover mb-2">
+                <thead className="table-dark"><tr><th></th><th>Details</th></tr></thead>
+                <tbody>
+                <tr><td>Name</td><td>xxxxxxxx</td></tr>
+                <tr><td>className</td><td>xxxxxxxx</td></tr>
+                <tr><td>Name</td><td>xxxxxxxx</td></tr>
+                <tr><td>Name</td><td>xxxxxxxx</td></tr>
+                <tr><td>Name</td><td>xxxxxxxx</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div className="tab-pane fade p-2" id="classNamees" role="tabpanel" 
+              aria-labelledby="classNamees-tab">
+              <h3 className="p-3 mb-2 text-center">Schedule for this semester</h3>
+              <table className="table-responsive table-bordered my-2 w-100 text-center">
+                <thead className="bg-dark text-white"><tr><th className="p-2">Attending classNamees</th>
+                  <th className="p-2">Completed classNamees</th><th className="p-2">Pending clases</th>
+                  <th className="p-2">Assignments pending</th>
+                </tr></thead>
+                <tbody>
+                <tr><td>xxxx</td><td>xxxxx</td><td>xxxxx</td><td>xxxxx</td></tr>
+                <tr><td>xxxx</td><td>xxxxx</td><td>xxxxx</td><td>xxxxx</td></tr>                
+                <tr><td>xxxx</td><td>xxxxx</td><td>xxxxx</td><td>xxxxx</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div className="tab-pane fade p-2" id="messages" role="tabpanel" 
+              aria-labelledby="messages-tab">
+              <h3 className="p-3 mb-2 text-center">Messages</h3>
+              <ul className="list-group">
+                <li className="list-group-item">A reward for completing todays tasks</li>
+                <li className="list-group-item">Not completed todays tasks</li>
+              </ul>
+            </div>
+            <div className="tab-pane fade p-2" id="immunization" role="tabpanel" 
+              aria-labelledby="immunization-tab">
+              <h3 className="p-3 mb-2 text-center">Immunization</h3>
+              <p className="py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Facere dolore velit tempore neque error itaque repellat aliquid magni blanditiis 
+                eius molestias, inventore dolor ut ab et. Impedit expedita neque consectetur.
+              </p>
+            </div>
+            <div className="tab-pane fade p-2" id="progressrprt" role="tabpanel" 
+              aria-labelledby="progressrprt-tab">
+              <h3 className="p-3 mb-2 text-center">Report Card</h3>
+              <p className="lead">Your grades for this semester are:</p>
+              <table className="table table-success table-hover table-bordered">
+                <thead className="table-dark"><tr><th>Subject</th><th>Marks</th><th>Grade</th></tr></thead>
+                <tbody>
+                <tr><td>xxxxx</td><td>xxx</td><td>A</td></tr>
+                <tr><td>xxxxx</td><td>xxx</td><td>B</td></tr>
+                <tr><td>xxxxx</td><td>xxx</td><td>C</td></tr>
+                <tr><td>xxxxx</td><td>xxx</td><td>D</td></tr>
+                <tr><td>xxxxx</td><td>xxx</td><td>E</td></tr>
+                <tr><td>xxxxx</td><td>xxx</td><td>F</td></tr>
+                <tr className="table-secondary"><td>overall grade</td><td></td><td>C</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div className="tab-pane fade p-2" id="rprtcard" role="tabpanel" 
+              aria-labelledby="rprtcard-tab">
+              <h3 className="p-3 mb-2 text-center">Remarks</h3>
+              <p className="lead">Your performance in this semister:</p>
+              <table className="table table-info table-hover table-bordered">
+                <thead className="table-dark"><tr><th>Subject</th><th>Performance</th></tr></thead>
+                <tbody><tr><td>xxxxxx</td><td>Good</td></tr>
+                <tr><td>xxxxxx</td><td>Can Be Improved</td></tr>
+                <tr><td>xxxxxx</td><td>Continue like this</td></tr>
+                <tr><td>xxxxxx</td><td>Learn Basics</td></tr>
+                <tr><td>xxxxxx</td><td>Best</td></tr>
+                <tr><td>xxxxxx</td><td>Better</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div className="tab-pane fade p-2" id="assignments" role="tabpanel" 
+              aria-labelledby="assignments-tab">
+              <h3 className="p-3 mb-2 text-center">Assignments</h3>
+              <table className="table table-striped table-bordered text-center mb-3">
+                <thead><tr><th>Assigned</th><th>Completed</th><th>Pending</th></tr></thead>
+                <tbody><tr><td>7</td><td>5</td><td>2</td></tr></tbody>
+              </table>
+              <p className="lead">Current Assignments are:</p>
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                <li className="list-group-item">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+              </ul>
+            </div>  
+          </div>
+          </div>
+        </div>
+        <Footer />
+        </section>
+      
+</body>
+</html>

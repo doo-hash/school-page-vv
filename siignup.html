@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section className="cotainer-lg p-lg-5 signup_layout section-2">
+        <div className="signup_form p-lg-5">
+        <form className="px-5 pb-5" onSubmit={handleSubmit}>
+        <div className="d-lg-flex mb-2 mb-lg-5 border-bottom">
+        <p className="align-items-start me-5 pt-2 p-lg-0">Select your category</p>
+          <div className="d-lg-flex align-items-center pb-2 px-lg-5">
+          <div className="form-check mx-lg-auto px-5">
+            <input className="form-check-input" type="radio" 
+            name="user" id="admin" value="Admin"
+             onChange={handleAdminLogin} 
+             defaultChecked/>
+            <label className="form-check-label" htmlFor="admin">Admin</label>
+          </div>
+          <div className="form-check mx-lg-auto px-5">
+            <input className="form-check-input" type="radio" name="user" 
+            id="teacher" value="Teacher"
+            onChange={handleTeacherLogin} 
+               />
+            <label className="form-check-label" htmlFor="teacher"> Teacher</label>
+          </div>
+          <div className="form-check mx-lg-auto px-5">
+            <input className="form-check-input" type="radio" name="user" 
+            id="parent" value="Parent"
+            onChange={handleParentLogin}   
+               />
+            <label className="form-check-label" htmlFor="parent">Parent</label>
+          </div>
+        </div>
+        </div>
+        <div className="mb-3 row">
+            <div className="col-lg-10">
+              <input type="text" className="form-control" name="formid" 
+              value={Math.floor(Math.random() * 1000)} readOnly
+              id="formid" hidden />
+            </div>
+          </div>
+          <div className="mb-3 row">
+            <label htmlFor="fname" className="col-form-label col-lg-3">First Name</label>
+            <div className="col-lg-9">
+              <input type="text" className="form-control" name="fname" id="fname"
+               minLength="5" maxLength="20" required />
+            </div>
+          </div>
+          <div className="mb-3 row">
+            <label htmlFor="lname" className="col-form-label col-lg-3">Last Name</label>
+            <div className="col-lg-9">
+              <input type="text" className="form-control" name="lname" id="lname" 
+              minLength="5" maxLength="20" required />
+            </div>
+          </div>
+          <div className="mb-3 row">
+            <label htmlFor="userid" className="col-form-label col-lg-3">
+            {`${isAdmnActive ? "Admin ID" : ""} 
+          ${isTchrActive ? "Teacher ID" : ""} 
+          ${isPrntActive ? "Parent ID/Student ID" : ""}`}</label>
+            <div className="col-lg-9">
+              <input type="text" className="form-control" name="userid" 
+              id="userid" minLength="10" 
+              onChange={setPassword}  
+                 />
+            </div>
+          </div>
+          <div className="mb-3 row">
+            <label htmlFor="InputEmail1" className="col-form-label col-lg-3">Email</label>
+            <div className="col-lg-9">
+              <input type="email" className="form-control" name="email" id="email" minLength="10" required />
+            </div>
+          </div>
+          <div className={
+            `${isAdmnActive ? "mb-3 row hide" : ""} 
+            ${isTchrActive ? "mb-3 row hide" : ""} 
+            ${isPrntActive ? "mb-3 row" : ""}`
+          }>
+            <label htmlFor="studentcls" className="col-form-label col-lg-3">Student className</label>
+            <div className="col-lg-9">
+              <input type="text" className="form-control" name="studentcls" id="studentcls" maxLength="20" />
+            </div>
+          </div>
+          <div className="mb-3 row">
+            <label htmlFor="password" className="col-form-label col-lg-3">Password</label>
+            <div className="col-lg-9">
+              <input type="password" className="form-control" name="password"
+              id="password" minLength="10" maxLength="15" readOnly={false} required />
+            <small>password must contain letters, numbers and spaecial chars.</small>
+            </div>
+          </div>
+          <div className={
+            `${isAdmnActive ? "mb-3 row" : ""} 
+            ${isTchrActive ? "mb-3 row" : ""} 
+            ${isPrntActive ? "mb-3 row hide" : ""}`
+          }>
+            <label htmlFor="tchrwrk" className="col-form-label col-lg-3">Education</label>
+            <div className="col-lg-9">
+              <textarea className="form-control" name="education" id="education" rows="5" 
+                 placeholder="Your education details here.....">
+              </textarea>
+            </div>
+          </div>
+          <div className={
+            `${isAdmnActive ? "mb-1 mb-lg-3 row" : ""} 
+            ${isTchrActive ? "mb-1 mb-lg-3 row" : ""} 
+            ${isPrntActive ? "mb-1 mb-lg-3 row hide" : ""}`
+          }>
+            <label htmlFor="tchrwrk" className="col-form-label col-lg-3">Work Experience</label>
+            <div className="col-lg-9">
+              <textarea className="form-control" name="tchrwrk" id="tchrwrk" rows="5" 
+                 placeholder="Your experience in teaching.....">
+              </textarea>
+            </div>
+          </div>
+          <div className="mb-1 mb-lg-3 form-check">
+            <input type="checkbox" className="form-check-input" id="Check1" required />
+            <label className="form-check-label" htmlFor="Check1"><span>Agree to <Link href="/" passHref><a>terms and conditions</a></Link></span></label>
+          </div>
+          <button type="submit" className="button d-flex justify-content-center">Submit</button>
+        </form>
+        </div>
+      </section>
+
+      <script>
+            const [isAdmnActive, setIsAdmnActive]= useState(true)
+  const [isTchrActive, setIsTchrActive]= useState(false)
+  const [isPrntActive, setIsPrntActive]= useState(false)
+
+  const handleSubmit= async (e)=>{
+    e.preventDefault()
+    const res= await fetch("https://6128abbf86a213001729fa50.mockapi.io/students",
+    {body: JSON.stringify({
+      User:e.target.user.value,
+      Form_Id:e.target.formid.value,
+      First_name:e.target.fname.value,
+      Last_name:e.target.lname.value,
+      User_Id:e.target.userid.value,
+      Email:e.target.email.value,
+      Student_Class:e.target.studentcls.value,
+      Password:e.target.password.value,
+      Work_Experience:e.target.tchrwrk.value,
+    }),
+    headers:{
+      "Content-Type":"application/json"
+    },
+    method:"POST",
+  }
+    )
+    const data = await res.json()
+    router.push("/login");
+    return data;
+  }
+
+  const setPassword=()=>{
+    let rlno=document.getElementById("userid").value;
+    let psd=document.getElementById("password");
+    psd.value=rlno;
+  }
+
+  const handleAdminLogin=()=>{
+    setIsPrntActive(false)
+    setIsTchrActive(false)
+    setIsAdmnActive(true)
+    let psd=document.getElementById("password");
+    psd.readOnly= false;
+    psd.placeholder = ""
+  }
+
+  const handleTeacherLogin=()=>{
+    setIsPrntActive(false)
+    setIsTchrActive(true)
+    setIsAdmnActive(false)
+    let psd=document.getElementById("password");
+    psd.placeholder="";
+    psd.readOnly = false
+  }
+
+  const handleParentLogin=()=>{
+    setIsPrntActive(true)
+    setIsTchrActive(false)
+    setIsAdmnActive(false)
+    let psd=document.getElementById("password");
+    psd.readOnly=true;
+    psd.placeholder="PASSWORD IS STUDENT ID";
+  }
+
+
+      </script>
+</body>
+</html>
